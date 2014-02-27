@@ -15,6 +15,9 @@ describe "filtering", ->
       candidates = ['/bar/foo', '/foo/bar']
       expect(filter(candidates, 'bar', maxResults: 1)).toEqual ['/foo/bar']
 
+      candidates = ['/bar/foo/qux', '/foo/bar/qux/baz']
+      expect(filter(candidates, 'br baz', maxResults: 1)).toEqual ['/foo/bar/qux/baz']
+
       candidates = ['/bar/foo', '/foo/bar/////////']
       expect(filter(candidates, 'bar', maxResults: 1)).toEqual ['/foo/bar/////////']
 
